@@ -5,7 +5,8 @@
 This module will provide you the possibility to handle fees in [Django Oscar](https://github.com/django-oscar/django-oscar). You may apply absolute valued fees or relative valued fees (relative to the basket total). Conditions such as basket values may be applied. Most code is based on the Django Oscar Offer module.
 
 #### Use case example: ####
-- *Orders with a total below €100 get an €10 fee.*
+- *Orders with a total less than €100 pay a €10 fee.*
+- *Users pay a 10% fee on their first Order.*
 
 ## Installation ##
 
