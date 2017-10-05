@@ -2,12 +2,12 @@
 from setuptools import setup, find_packages
 
 setup(name='django-oscar-fees',
-      version='0.1',
+      version='0.2',
       url='https://github.com/JorrandeWit/django-oscar-fees',
       author="Jorran de Wit",
       author_email="jorrandewit@outlook.com",
       description="Apply fees to baskets and orders in django-oscar",
-      classifiers=['Development Status :: 3 - Alpha',
+      classifiers=['Development Status :: 4 - Beta',
                    'Environment :: Web Environment',
                    'Framework :: Django :: 1.9',
                    'Framework :: Django :: 1.10',

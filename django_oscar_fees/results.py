@@ -26,7 +26,7 @@ class FeeApplications(object):
                 'fee': fee,
                 'result': result,
                 'name': fee.name,
-                'description': result.description,
+                'description': fee.description,
                 'freq': 0,
                 'amount': D('0.00')}
         self.applications[fee.id]['amount'] += result.fee

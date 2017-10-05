@@ -1,7 +1,9 @@
 import logging
 from itertools import chain
 
+from django.contrib import messages
 from django.db.models import Q
+from django.urls import reverse
 from django.utils.timezone import now
 
 from .models import ConditionalFee
@@ -18,6 +20,15 @@ class Applicator(object):
         """
         fees = self.get_fees(basket, user, request)
         self.apply_fees(basket, fees)
+        self.add_messages(basket, request)
+
+    def add_messages(self, basket, request):
+        if request.path not in [reverse('checkout:payment-details'), reverse('basket:summary')]:
+            return
+
+        for fee in basket.fee_applications:
+            if fee.get('description', False):
+                messages.warning(request, fee['description'], fail_silently=True)
 
     def apply_fees(self, basket, fees):
         applications = FeeApplications()
@@ -33,6 +44,7 @@ class Applicator(object):
                     break
 
                 applications.add(fee, result)
+
                 basket.total_test += 1
                 if result.is_final:
                     break
