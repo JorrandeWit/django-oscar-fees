@@ -1,4 +1,8 @@
-from oscar.core.compat import MiddlewareMixin
+try:
+    from oscar.core.compat import MiddlewareMixin
+except ImportError:
+    from django.utils.deprecation import MiddlewareMixin
+    
 from oscar.core.loading import get_model
 
 from .applicator import Applicator
